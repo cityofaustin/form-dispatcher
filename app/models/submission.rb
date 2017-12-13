@@ -14,11 +14,15 @@ class Submission < ApplicationRecord
           case destination
             when "email"
               uri = URI('http://localhost:3002')
+            when "githubIssue"
+              uri = URI('http://localhost:3003')
           end
         when  "production"
           case destination
             when "email"
               uri = URI('https://coa-test-form-email.herokuapp.com/')
+            when "githubIssue"
+              uri = URI('https://coa-test-form-github-issue.herokuapp.com/')
           end
       end
       return uri
