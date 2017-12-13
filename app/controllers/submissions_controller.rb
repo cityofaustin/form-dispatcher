@@ -6,17 +6,19 @@ class SubmissionsController < ApplicationController
     sanitized_params = params.except(:controller, :action)
     @submission = Submission.new(
       :content => sanitized_params,
-      :destination => "email-service"
+      :destination => sanitized_params["destination"]
     )
     if @submission.save
+      response = Submission.dispatch(params["destination"], @submission.content)
+      parsed = JSON.parse(response.body)
       render json: {
-        status: 200,
-        message: "Submission saved",
+        status: "#{parsed["status"]}",
+        body: "#{parsed["body"]}"
       }
     else
       render json: {
-        status: 500,
-        message: "Submission could not be saved",
+        status: "#{parsed["status"]}",
+        body: "#{parsed["body"]}"
       }
     end
   end
