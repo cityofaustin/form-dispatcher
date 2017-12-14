@@ -13,7 +13,8 @@ class SubmissionsController < ApplicationController
       parsed = JSON.parse(response.body)
       render json: {
         status: "#{parsed["status"]}",
-        body: "#{parsed["body"]}"
+        body: "#{parsed["body"]}",
+        url: "#{parsed["url"]}"
       }
     else
       render json: {
