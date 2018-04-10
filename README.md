@@ -123,7 +123,7 @@ In addition to required params for the dispatcher, the supporting services may a
 
 ## CORS
 
-The `rack-cors` gem provides support for Cross-Origin Resource Sharing, so that forms can be submitted from domains other than where the application is accessed. Domains must be manually white-listed in `lib/initializers/cors.rb`.
+The `rack-cors` gem provides support for Cross-Origin Resource Sharing, so that forms can be submitted from domains other than where the application is accessed. Domains must be manually white-listed in `config/initializers/cors.rb`.
 
 ## Environments
 
