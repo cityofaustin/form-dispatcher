@@ -10,7 +10,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     if Rails.env.development?
       origins 'http://localhost:3001'
     elsif Rails.env.production?
-      origins 'austintexas.gov', 'http://alpha.austin.gov', 'https://coa-test-form-client.herokuapp.com', '*.palmereventscenter.com', '*.austinconventioncenter.com'
+      origins 'austintexas.gov', 'http://alpha.austin.gov', 'https://coa-test-form-client.herokuapp.com', 'https://staging.austinconventioncenter', 'https://www.austinconventioncenter', 'https://staging.palmereventscenter.com', 'https://www.palmereventscenter.com',
     end
     resource '*',
       headers: :any,
